@@ -1,14 +1,14 @@
 const FILES_TO_CACHE = [
     "/",
     "/index.html",
-    "/assets/css/styles.css",
-    "/assets/js/index.js",
-    "/assets/images/icons/icon-192x192.png",
-    "/assets/images/icons/icon-512x512.png",
+    "/styles.css",
+    "/index.js",
+    "/icons/icon-192x192.png",
+    "/icons/icon-512x512.png",
     "/manifest.webmanifest",
-    "/assets/js/index.js",
-    "/assets/js/dbIndex.js",
-    "/assets/css/styles.css"
+    "/index.js",
+    "/dbIndex.js",
+    "/styles.css"
 ];
 
 const CACHE_NAME = "static-cache-v2";
@@ -69,7 +69,6 @@ self.addEventListener("install", function(evt) {
     }
   
     // if the request is not for the API, serve static assets using "offline-first" approach.
-    // see https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook#cache-falling-back-to-network
     evt.respondWith(
       caches.match(evt.request).then(function(response) {
         return response || fetch(evt.request);

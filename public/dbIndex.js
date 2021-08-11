@@ -5,7 +5,7 @@ const request = indexedDB.open("budget", 1);
 request.onupgradeneeded = e => {
     const db = e.target.result;
 
-    db.createObjectStore("pending", { keyPath: "id", autoIncrement: true});
+    db.createObjectStore("budget", { keyPath: "id", autoIncrement: true});
 };
 
 request.onsuccess = e => {
@@ -21,8 +21,8 @@ request.onerror = (e) => {
 };
 
 const checkDatabase = () => {
-    const transaction = db.transaction(["pending"], "readwrite");
-    const store = transaction.createObjectStore("pending");
+    const transaction = db.transaction(["budget"], "readwrite");
+    const store = transaction.createObjectStore("budget");
     const getAll = store.getAll();
 
     getAll.onsuccess = () => {
@@ -37,17 +37,19 @@ const checkDatabase = () => {
             })
             .then((response) => response.json())
             .then((res) => {
-                transaction = db.transaction(["pending"], "readwrite");
-                const currentStore = transaction.objectStore("pending");
-                currentStore.clear();
-            })
+                if(res.length !== 0) {
+                    transaction = db.transaction(["budget"], "readwrite");
+                    const currentStore = transaction.objectStore("budget");
+                    currentStore.clear();
+                }  
+            });
         }
     }
 }
 
 const saveRecord = (record) => {
-    const transaction = db.transaction(["pending"], "readwrite");
-    const store = transaction.objectStore("pending");
+    const transaction = db.transaction(["budget"], "readwrite");
+    const store = transaction.objectStore("budget");
     store.add(record);
 }
 
