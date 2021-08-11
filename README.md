@@ -13,13 +13,15 @@ As a software developer, a task has been assigned to add extra functionality to 
 - THEN that will be shown on the page, and added to their transaction history when their connection is back online.
 
 ## Screenshots
-
+![budget-tracker1](https://user-images.githubusercontent.com/14179472/129048286-a9fb77bb-ed0a-4e39-8c86-f29d8e9dbce7.png)
 
 ## Technology used
 - MongoDB
 - Mongoose
 - Express
 - Node js
+- Morgan
+- Heroku deploy
 
 ## URL
 - Heroku: https://pacific-reef-01089.herokuapp.com/ 
