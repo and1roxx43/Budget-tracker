@@ -25,7 +25,7 @@ As a software developer, a task has been assigned to add extra functionality to 
 
 ## URL
 - Heroku: https://pacific-reef-01089.herokuapp.com/ 
-- GiytHub: https://github.com/and1roxx43/Budget-tracker
+- GitHub: https://github.com/and1roxx43/Budget-tracker
 
 ## Contact
 
