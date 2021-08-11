@@ -22,12 +22,12 @@ request.onerror = (e) => {
 
 const checkDatabase = () => {
     const transaction = db.transaction(["budget"], "readwrite");
-    const store = transaction.createObjectStore("budget");
+    const store = transaction.objectStore("budget");
     const getAll = store.getAll();
 
     getAll.onsuccess = () => {
         if(getAll.result.length > 0) {
-            fetch("/api/transaction/bulk", {
+            fetch("/api/transaction/", {
                 method: "POST",
                 body: JSON.stringify(getAll.result),
                 headers: {
